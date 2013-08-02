@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link href='../fullcalendar/fullcalendar.css' rel='stylesheet' />
+<link href='../fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+<script src='../jquery/jquery-1.9.1.min.js'></script>
+<script src='../jquery/jquery-ui-1.10.2.custom.min.js'></script>
+<script src='../fullcalendar/fullcalendar-nl.js'></script>
+<script src='../fullcalendar/gcal.js'></script>
+<script>
+
+	$(document).ready(function() {
+	
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth();
+		var y = date.getFullYear();
+		
+		$('#calendar').fullCalendar({
+			editable: true,
+			monthNames: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+            monthNamesShort: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],  
+            dayNames: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+            dayNamesShort: ["周日", "周一", "周二", "周三", "周四", "周五", "周六"],  
+            today: ["今天"],  
+            firstDay: 1,  
+			buttonText: {  
+              today: '本月',  
+              month: '月',  
+              week: '周',  
+              day: '日',  
+              prev: '上一月',  
+              next: '下一月'  
+            },
+			/*
+			events: $.fullCalendar.gcalFeed
+					 ("https://www.google.com/calendar/feeds/sxyx2008%40gmail.com/public/basic",
+					  {
+					   className:'gcal-event',
+					   editable:true,
+					   color:'red',
+					   currentTimezone:'Asia/Shanghai'
+					  }
+					 ),
+			*/
+			events: "json.json",//请求json数据
+			eventColor :'red',
+			loading: function(bool) {
+				if (bool) $('#loading').show();
+				else $('#loading').hide();
+			},
+			dayClick:function(dayDate, allDay, jsEvent, view){//点击单元格事件  
+						//alert(dayDate.getFullYear()+"-"+dayDate.getMonth()+"-"+dayDate.getDate()+"-星期:"+dayDate.getDay()+ "视图:"+view.name);  
+						//$('#calendar').fullCalendar("incrementDate", -1, 0, 0); //移动日历 后三个参数为 年 月 日  
+						//$('#calendar').fullCalendar("prev"); // 跳转到前一月/周/天, 根据当前的view决定  
+						//$('#calendar').fullCalendar("next"); // 跳转到下一月/周/天, 根据当前的view决定  
+						//$('#calendar').fullCalendar("today"); // 跳转今天  
+						//$('#calendar').fullCalendar("gotoDate", year[, month[, date]]); //跳转到指定的日期  
+						//$('#calendar').fullCalendar("changeView","viewName"); //切换日历的view, viewName必须是允许的views  
+					},  
+			currentTimezone: 'Asia/Beijing'
+		});
+		
+	});
+
+</script>
+<style>
+
+	body {
+		margin-top: 40px;
+		text-align: center;
+		font-size: 14px;
+		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+		}
+	#loading {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		}
+	#calendar {
+		width: 400px;
+		margin: 0 auto;
+		}
+
+</style>
+</head>
+<body>
+<div id='loading' style='display:none'>loading...</div>
+<div id='calendar'></div>
+</body>
+</html>
