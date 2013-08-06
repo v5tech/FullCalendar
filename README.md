@@ -1,8 +1,7 @@
-基于FullCalendar二次开发，支持农历功能。中文测试OK 
-========================================================
+####鍩轰簬FullCalendar浜屾寮�鍙戯紝鏀寔鍐滃巻鍔熻兘銆備腑鏂囨祴璇昈K 
 
-![含农历的FullCalendar](images/fullcalendar_1.jpg)
+![鍚啘鍘嗙殑FullCalendar](images/fullcalendar_1.jpg)
 
-![可编辑的FullCalendar](images/fullcalendar_2.jpg)
+![鍙紪杈戠殑FullCalendar](images/fullcalendar_2.jpg)
 
-[官方主页](http://arshaw.com/fullcalendar/)
+[瀹樻柟涓婚〉](http://arshaw.com/fullcalendar/)
